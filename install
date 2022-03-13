@@ -40,7 +40,7 @@ mkfs.fat -F 32 "$disk"2
 # mount filesystems 
 mkdir /mnt
 mount "$disk"1 /mnt
-mkdir/mnt/boot
+mkdir /mnt/boot
 mount "$disk"2 /mnt/boot
 
 # sort mirrors
