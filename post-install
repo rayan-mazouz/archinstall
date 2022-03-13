@@ -47,6 +47,3 @@ editor   no" > /efi/loader/loader.conf
 
 # enable network manager
 systemctl enable NetworkManager
-
-# rice
-./rice

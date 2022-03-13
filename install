@@ -53,4 +53,6 @@ pacstrap /mnt base linux-zen linux-firmware rsync reflector
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # post install
-arch-chroot /mnt ./post-install
+cp ./post-install /mnt
+arch-chroot /mnt /post-install
+rm /mnt/post-install
