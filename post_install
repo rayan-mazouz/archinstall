@@ -1,0 +1,44 @@
+#!/bin/sh
+
+# source config file
+. ./config
+
+# set time zone
+ln -sf /usr/share/zoneinfo/"$region"/"$city" /etc/localtime
+hwclock --systohc
+
+# generate locale
+"en_US.UTF-8 UTF-8" > /etc/locale.gen
+locale-gen
+
+# set keymap
+"KEYMAP=$keymap" > /etc/vconsole.conf
+
+# network configuration
+"$hostname" > /etc/hostname
+"127.0.0.1        localhost
+::1              localhost
+127.0.1.1        $hostname" > /etc/hosts
+
+# set root password
+echo "$password" | passwd --stdin
+
+# create user
+useradd -m "$username"
+echo "$password" | passwd "$username" --stdin
+
+# add user to doas
+"permit $username as root" > /etc/doas.conf
+
+# install systemd boot
+bootctl --esp-path=/efi --boot-path=/boot install
+"default  arch.conf
+timeout  0
+console-mode max
+editor   no" > /efi/loader/loader.conf
+
+# enable network manager
+systemctl enable NetworkManager
+
+# rice
+./rice
