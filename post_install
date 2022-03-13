@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# install software
+pacman -Sy
+pacman -S --noconfirm base-devel --ignore sudo
+pacman -S --noconfirm doas networkmanager vim git
+
 # source config file
 . ./config
 
