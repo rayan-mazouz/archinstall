@@ -47,7 +47,7 @@ mount "$disk"2 /mnt/boot
 reflector --sort rate -l 10 --save /etc/pacman.d/mirrorlist
 
 # install arch linux and software
-pacstrap /mnt base base-devel linux-zen linux-firmware doas networkmanager vim git
+pacstrap /mnt base linux-zen linux-firmware
 
 # generate fstab
 genfstab -U /mnt >> /mnt/etc/fstab
