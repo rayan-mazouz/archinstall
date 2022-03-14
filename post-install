@@ -40,7 +40,9 @@ echo -e "$password\n$password" | passwd $username
 echo "permit $username as root" > /etc/doas.conf
 
 # install systemd boot
-bootctl --esp-path=/efi --boot-path=/boot install
+mkdir /mnt/boot/efi
+mount "$disk"2 /mnt/boot/efi
+bootctl install
 echo "default  arch.conf
 timeout  0
 console-mode max
