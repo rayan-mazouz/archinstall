@@ -1,4 +1,4 @@
 #!/bin/sh
 
-# reboot
-reboot
+# install i3 window manager
+pacman -S --noconfirm i3-gaps i3lock
