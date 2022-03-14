@@ -59,6 +59,7 @@ cp ./rice /mnt
 cp ./config /mnt
 cp ./grub /mnt
 arch-chroot /mnt ./post-install
+arch-chroot /mnt ./rice
 rm -f /mnt/post-install
 rm -f /mnt/rice
 rm -f /mnt/config
