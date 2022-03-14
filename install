@@ -4,7 +4,7 @@
 . ./config
 
 #verify config file
-if [ "$disk" = "" -o "$username" = "" -o "$password" = "" -o "$region" = "" -o "city" = "" -o "$keymap" = "" ]
+if [ "$disk" = "" -o "s$ystemPartition" = "" -o "$bootPartition" = "" -o "$username" = "" -o "$password" = "" -o "$region" = "" -o "$city" = "" -o "$keymap" = "" -o "$hostname" = "" ]
 	then
 	echo "incorrect config file"
 	exit
