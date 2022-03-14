@@ -17,6 +17,9 @@ if [ ! -d "/sys/firmware/efi" ]
   exit
 fi
 
+# install dependencies
+pacman -Sy --noconfirm wget
+
 # verify internet connection
 wget -q --spider 1.1.1.1
 if ! [ $? -eq 0 ]; then
