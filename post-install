@@ -5,7 +5,8 @@ reflector --sort rate -l 10 --save /etc/pacman.d/mirrorlist
 
 # install software
 pacman -Sy
-pacman -S --noconfirm base-devel --ignore sudo
+pacman -S --noconfirm base-devel
+pacman -R --noconfirm sudo
 pacman -S --noconfirm doas networkmanager vim git
 
 # source config file
