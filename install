@@ -43,8 +43,6 @@ mkfs.fat -F 32 "$disk"2
 # mount filesystems 
 mkdir /mnt
 mount "$disk"1 /mnt
-mkdir /mnt/boot
-mount "$disk"2 /mnt/boot
 
 # sort mirrors
 reflector --sort rate -l 10 --save /etc/pacman.d/mirrorlist
