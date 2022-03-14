@@ -61,4 +61,6 @@ arch-chroot /mnt ./post-install
 rm /mnt/post-install
 rm /mnt/rice
 rm /mnt/config
-#reboot
+
+# reboot
+reboot
