@@ -57,10 +57,12 @@ genfstab -U /mnt >> /mnt/etc/fstab
 cp ./post-install /mnt
 cp ./rice /mnt
 cp ./config /mnt
+cp ./grub /mnt
 arch-chroot /mnt ./post-install
-rm /mnt/post-install
-rm /mnt/rice
-rm /mnt/config
+rm -f /mnt/post-install
+rm -f /mnt/rice
+rm -f /mnt/config
+rm -f /mnt/grub
 
 # reboot
 reboot
