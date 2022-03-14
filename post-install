@@ -41,7 +41,7 @@ echo "permit $username as root" > /etc/doas.conf
 
 # install systemd boot
 mkdir /mnt/boot/efi
-mount "$disk"2 /mnt/boot/efi
+mount $bootPartition /mnt/boot/efi
 bootctl install
 echo "default  arch.conf
 timeout  0
