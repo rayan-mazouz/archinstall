@@ -7,7 +7,7 @@ reflector --sort rate -l 10 --save /etc/pacman.d/mirrorlist
 pacman -Sy
 pacman -S --noconfirm base-devel
 pacman -R --noconfirm sudo
-pacman -S --noconfirm doas networkmanager vim git
+pacman -S --noconfirm doas networkmanager vim git grub efibootmgr dosfstools os-prober mtools
 
 # source config file
 . ./config
@@ -39,14 +39,11 @@ echo -e "$password\n$password" | passwd $username
 # add user to doas
 echo "permit $username as root" > /etc/doas.conf
 
-# install systemd boot
-mkdir /mnt/boot/efi
-mount $bootPartition /mnt/boot/efi
-bootctl install
-echo "default  arch.conf
-timeout  0
-console-mode max
-editor   no" > /efi/loader/loader.conf
+# grub
+mkdir /boot/EFI
+mount $bootPartition /boot/EFI
+grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
+grub-mkconfig -o /boot/grub/grub.cfg
 
 # enable network manager
 systemctl enable NetworkManager
