@@ -49,8 +49,7 @@ editor   no" > /efi/loader/loader.conf
 systemctl enable NetworkManager
 
 # add multilib support
-echo "
-
+echo -e "\n\n
 [multilib]
 Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 
