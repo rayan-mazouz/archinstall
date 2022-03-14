@@ -43,9 +43,8 @@ echo "permit $username as root" > /etc/doas.conf
 mkdir /boot/EFI
 mount $bootPartition /boot/EFI
 grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
+cp grub /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
-echo -e "\n\nGRUB_FORCE_HIDDEN_MENU=\"true\"" >> /etc/default/grub
-echo -e "chmod a+x /etc/grub.d/31_hold_shift\ngrub-mkconfig -o /boot/grub/grub.cfg" > /etc/grub.d/31_hold_shift
 
 # enable network manager
 systemctl enable NetworkManager
