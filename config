@@ -1,4 +1,6 @@
 disk=""
+systemPartition=""
+bootPartition=""
 username=""
 password=""
 region=""
