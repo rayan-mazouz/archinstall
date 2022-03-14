@@ -37,12 +37,12 @@ parted $disk -- mkpart ESP fat32 0% 550MiB
 parted $disk -- set 2 esp on
 
 # format partitions
-mkfs.xfs "$disk"1
-mkfs.fat -F 32 "$disk"2
+mkfs.xfs $systemPartition
+mkfs.fat -F 32 $bootPartition
 
 # mount filesystems 
 mkdir /mnt
-mount "$disk"1 /mnt
+mount $systemPartition /mnt
 
 # sort mirrors
 reflector --sort rate -l 10 --save /etc/pacman.d/mirrorlist
