@@ -1,4 +1,13 @@
 #!/bin/sh
 
+# install paru
+pacman -S --noconfirm cargo
+echo "$username" | su "$username"
+cd ~
+git clone https://aur.archlinux.org/paru.git
+cd paru
+echo "$password" | makepkg -si --noconfirm
+exit
+
 # install i3 window manager
 pacman -S --noconfirm i3-gaps i3lock
