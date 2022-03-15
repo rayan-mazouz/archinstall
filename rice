@@ -2,11 +2,11 @@
 
 # install paru
 pacman -S --noconfirm cargo
-echo "$username" | su "$username"
+su "$username"
 cd ~
 git clone https://aur.archlinux.org/paru.git
 cd paru
-echo "$password" | makepkg -si --noconfirm
+makepkg -si --noconfirm
 exit
 
 # install i3 window manager
