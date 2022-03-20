@@ -37,7 +37,7 @@ parted $disk -- mkpart ESP fat32 0% 550MiB
 parted $disk -- set 2 esp on
 
 # format partitions
-mkfs.xfs $systemPartition
+mkfs.xfs -f $systemPartition
 mkfs.fat -F 32 $bootPartition
 
 # mount filesystems 
